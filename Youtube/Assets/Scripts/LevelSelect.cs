@@ -7,7 +7,9 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour
 {
     public Button[] LevelButtons;
-    // Start is called before the first frame update
+    public int NextLevel = 2;
+
+
     void Start()
     {
         int levelReached = PlayerPrefs.GetInt("levelReached", 1);
@@ -20,8 +22,20 @@ public class LevelSelect : MonoBehaviour
         }
     }
 
-    public void Select(int levelNum)
+    void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(levelNum + 1);
+        if (other.gameObject.layer == 10)
+        {
+            {
+                SceneManager.LoadScene(1);
+                PlayerPrefs.SetInt("levelReached", NextLevel);
+            }
+        }
     }
+
+    public void LevelSelection(int LevelNum)
+    {
+        SceneManager.LoadScene(LevelNum + 1);
+    }
+
 }

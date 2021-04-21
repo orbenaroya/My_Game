@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 3682574045477156282}
   - component: {fileID: 1240937715}
   - component: {fileID: 1240937721}
+  - component: {fileID: 3682574045847801081}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -242,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundTransform: {fileID: 913012027}
-  movmentSpeed: 1.5
+  movmentSpeed: 1.25
   jumpRate: 5
 --- !u!114 &1240937715
 MonoBehaviour:
@@ -271,4 +272,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnPoint: {fileID: 0}
   player: {fileID: 3682574045477156285}
-  NextLevel: 2
+--- !u!114 &3682574045847801081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3682574045477156272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df51185a5a973b243bbd9be93cc5ca97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelButtons: []
+  NextLevel: 3
