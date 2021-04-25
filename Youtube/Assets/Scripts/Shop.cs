@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
-    public Coins coinsCount;
     void Start()
     {
-        coinsCount = FindObjectOfType<Coins>;
         Debug.Log("");
     }
 

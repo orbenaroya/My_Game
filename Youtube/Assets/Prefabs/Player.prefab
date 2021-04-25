@@ -179,7 +179,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 810018fe9f9ad0a448280699424a439d, type: 2}
+  - {fileID: 2100000, guid: 9019f834eeb1c984891e416e4feb3fce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -285,4 +285,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LevelButtons: []
-  NextLevel: 3
+  NextLevel: 2
