@@ -7,15 +7,16 @@ using UnityEngine.UI;
 public class LevelSelect : MonoBehaviour
 {
     public Button[] LevelButtons;
-    public int NextLevel = 2;
-
+    public static int NextLevel = 1;
+    int levelReached = 1;
 
     void Start()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+        Debug.Log(NextLevel);
+        Debug.Log(levelReached);
         for (int i = 0; i < LevelButtons.Length; i++)
         {
-            if (i + 1 > levelReached)
+            if (i + 1 > NextLevel)
             {
                 LevelButtons[i].interactable = false;
             }
@@ -27,8 +28,8 @@ public class LevelSelect : MonoBehaviour
         if (other.gameObject.layer == 10)
         {
             {
+                SetLevel(levelReached++);
                 SceneManager.LoadScene(1);
-                PlayerPrefs.SetInt("levelReached", NextLevel);
             }
         }
     }
@@ -38,4 +39,14 @@ public class LevelSelect : MonoBehaviour
         SceneManager.LoadScene(LevelNum + 1);
     }
 
+    public int GetLevel()
+    {
+        return levelReached;
+    }
+
+    public int SetLevel(int NewlevelReached)
+    {
+        NextLevel = NewlevelReached;
+        return NextLevel;
+    }
 }

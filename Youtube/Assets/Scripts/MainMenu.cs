@@ -6,6 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    LevelSelect levelselect;
+    
+    public void Start()
+    {
+        levelselect = FindObjectOfType<LevelSelect>().GetComponent<LevelSelect>();
+        levelselect.SetLevel(1);
+    }
 
     public void PlayGame()
     {
