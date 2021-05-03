@@ -9,7 +9,6 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayerPrefs.SetInt("levelReached", 1);
         SceneManager.LoadScene(1);
     }
 

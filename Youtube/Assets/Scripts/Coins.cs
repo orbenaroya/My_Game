@@ -22,4 +22,12 @@ public class Coins : MonoBehaviour
             Destroy(other.gameObject);
         }
     }
+    public int GetCoin()
+    {
+        return countCoin;
+    }
+    public void SetCoin(int newCountcoin)
+    {
+        countCoin = newCountcoin;
+    }
 }
