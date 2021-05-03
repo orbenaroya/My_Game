@@ -6,12 +6,11 @@ using TMPro;
 public class Coins : MonoBehaviour
 {
     public TextMeshProUGUI textcoin;
-    public static int countCoin = 0;
+    static int countCoin = 0;
 
     void Start()
     {
         textcoin.text = "Coins: " + countCoin;
-        PlayerPrefs.SetInt("countCoin", countCoin);
     }
     void OnTriggerEnter(Collider other)
     {
