@@ -9,14 +9,19 @@ public class LevelSelect : MonoBehaviour
     public Button[] LevelButtons;
     public static int NextLevel = 1;
     int levelReached = 1;
+    static int levelReachedmax = 1;
+
 
     void Start()
     {
-        Debug.Log(NextLevel);
-        Debug.Log(levelReached);
+        if (levelReached > levelReachedmax)
+        {
+            levelReachedmax = levelReached;
+        }
+
         for (int i = 0; i < LevelButtons.Length; i++)
         {
-            if (i + 1 > NextLevel)
+            if (i + 1 > levelReachedmax)
             {
                 LevelButtons[i].interactable = false;
             }
@@ -28,7 +33,7 @@ public class LevelSelect : MonoBehaviour
         if (other.gameObject.layer == 10)
         {
             {
-                SetLevel(levelReached++);
+                levelReached = NextLevel;
                 SceneManager.LoadScene(1);
             }
         }
@@ -37,16 +42,5 @@ public class LevelSelect : MonoBehaviour
     public void LevelSelection(int LevelNum)
     {
         SceneManager.LoadScene(LevelNum + 1);
-    }
-
-    public int GetLevel()
-    {
-        return levelReached;
-    }
-
-    public int SetLevel(int NewlevelReached)
-    {
-        NextLevel = NewlevelReached;
-        return NextLevel;
     }
 }

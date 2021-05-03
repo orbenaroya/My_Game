@@ -8,30 +8,18 @@ public class Coins : MonoBehaviour
     public TextMeshProUGUI textcoin;
     public static int countCoin = 0;
 
-
     void Start()
     {
         textcoin.text = "Coins: " + countCoin;
+        PlayerPrefs.SetInt("countCoin", countCoin);
     }
-
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 8)
         {
-            SetCoin(countCoin + 1);
-            textcoin.text = "Coins: " + GetCoin();
+            countCoin++;
+            textcoin.text = "Coins: " + countCoin;
             Destroy(other.gameObject);
         }
-    }
-
-    public int GetCoin()
-    {
-        return countCoin;
-    }
-
-    public int SetCoin(int NewCoin)
-    {
-        countCoin = NewCoin;
-        return countCoin;
     }
 }
