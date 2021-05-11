@@ -6,27 +6,32 @@ using TMPro;
 public class Coins : MonoBehaviour
 {
     public TextMeshProUGUI textcoin;
-    static int countCoin = 0;
+    public static int countCoin = 0;
+
 
     void Start()
     {
-        textcoin.text = "Coins: " + countCoin;
+        textcoin.text = "Coins: " + GetCoin();
     }
+
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.layer == 8)
         {
-            countCoin++;
-            textcoin.text = "Coins: " + countCoin;
+            SetCoin(countCoin + 1);
+            textcoin.text = "Coins: " + GetCoin();
             Destroy(other.gameObject);
         }
     }
+
     public int GetCoin()
     {
         return countCoin;
     }
-    public void SetCoin(int newCountcoin)
+
+    public int SetCoin(int NewCoin)
     {
-        countCoin = newCountcoin;
+        countCoin = NewCoin;
+        return countCoin;
     }
 }

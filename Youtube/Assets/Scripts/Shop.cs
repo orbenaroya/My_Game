@@ -1,7 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+
+
 
 public class Shop : MonoBehaviour
 {
@@ -12,14 +15,18 @@ public class Shop : MonoBehaviour
     {
         coins = FindObjectOfType<Coins>().GetComponent<Coins>();
         textcoin.text = "Coins: " + coins.GetCoin();
-        Debug.Log(coins.GetCoin());
     }
 
+    void update()
+    {
+        textcoin.text = "Coins: " + coins.GetCoin();
+    }
     public void buy (int price)
     {
-        if (coins.GetCoin() > price)
+        if(coins.GetCoin() > price)
         {
-            coins.SetCoin(price);
+            coins.SetCoin(coins.GetCoin() - price);
+            textcoin.text = "Coins: " + coins.GetCoin();
         }
     }
 }
